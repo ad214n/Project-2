@@ -5,3 +5,4 @@ const applicationController = {
 }
 
 module.exports = applicationController
+
