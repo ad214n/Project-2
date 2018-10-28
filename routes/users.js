@@ -1,9 +1,31 @@
 var express = require('express');
 var router = express.Router();
+const userModel = require('../models/user');
 
 /* GET users listing. */
 router.get('/', function(req, res, next) {
   res.render('users');
+});
+
+router.post('/new', function(req, res, next) {
+  const userInfo = req.body;
+
+  const userData = {
+    userName: userInfo.userName,
+    age: parseInt(userInfo.userAge),
+    weight: parseInt(userInfo.userWeight),
+    height: parseInt(userInfo.userHeight),
+    goals: userInfo.userGoals,
+  }
+
+  userModel
+    .create(userData)
+    .then(function() {
+      res.send("SUCCESS | creating new User");
+    })
+    .catch(function(err) {
+      res.send("ERROR | creating new User | " + JSON.stringify(err));
+    });
 });
 
 /* GET users listing. */

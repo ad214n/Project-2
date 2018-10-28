@@ -1,9 +1,9 @@
 <h1>Our Community</h1>
 <a href="/">Go Back</a>
-<button>Create Account</button>
+
 <button>See Who's Here!</button>
 <button>Chekout Our Exercises!</button>
-<form action="/my-handling-form-page" method="post">
+<form action="/users/new" method="post">
     <div>
         <label for="name">User Name</label>
         <input type="text" id="name" name="userName">
@@ -18,10 +18,12 @@
     </div>
     <div>
         <label for="height">Height:</label>
-        <input type="number" id="height" name="userAge">
+        <input type="number" id="height" name="userHeight">
      </div>
     <div>
         <label for="msg">Goals</label>
         <textarea id="msg" name="userGoals"></textarea>
     </div>
+<br>
+    <input type="submit" value="Create Account">
 </form>
