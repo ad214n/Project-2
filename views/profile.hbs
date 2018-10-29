@@ -4,7 +4,7 @@
 <h3>Height: {{height}}</h3>
 <h3>Goals: {{goals}}</h3>
 <br>
-<form action="/exercise/new" method="post">
+<form action="/exercises/new" method="post">
     <div>
         <label for="name">Exercise Name</label>
         <input type="text" id="name" name="exerciseName">
@@ -21,3 +21,10 @@
     <input type="submit" value="Create Exercise">
 
 </form>
+
+<br>
+
+<h1>Exercises List</h1>
+{{#each exercises}}
+    {{> exercise}}
+{{/each}}

@@ -1,6 +1,7 @@
 var express = require('express');
 var router = express.Router();
 const userModel = require('../models/user');
+const exerciseModel = require('../models/exercise');
 
 /* GET users listing. */
 router.get('/', function(req, res, next) {
@@ -26,7 +27,7 @@ router.post('/new', function(req, res, next) {
       // find the new user record 
 
       // render the Specific User page with this new user's data
-      
+
       res.send("SUCCESS | creating new User");
     })
     .catch(function(err) {
@@ -34,9 +35,31 @@ router.post('/new', function(req, res, next) {
     });
 });
 
+router.get("/profile/:userID", function(req, res, next){
+  const userID = req.params.userID;
+  
+  userModel.findById(userID)
+    .populate("exercises")
+    .then(function(results) {
+      const profileObj = {
+        username: results.userName,
+        age: results.age,
+        height: results.height,
+        weight: results.weight,
+        goals: results.goals
+      };
+
+      res.render("profile", profileObj);
+    });
+
+});
+
 /* GET users listing. */
-router.get('/test/:userID', function(req, res, next) {
-  res.send(`respond with a resource ${req.params.userID}`);
+router.get('/allUsers', function(req, res, next) {
+  userModel.find({})
+    .then(function(results) {
+      res.send(JSON.stringify(results));
+    });
 });
 
 
