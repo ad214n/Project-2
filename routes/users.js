@@ -21,6 +21,12 @@ router.post('/new', function(req, res, next) {
   userModel
     .create(userData)
     .then(function() {
+      // get the new user id
+
+      // find the new user record 
+
+      // render the Specific User page with this new user's data
+      
       res.send("SUCCESS | creating new User");
     })
     .catch(function(err) {
