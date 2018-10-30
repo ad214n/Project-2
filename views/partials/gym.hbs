@@ -20,7 +20,7 @@
 
 <div>
     <p>Name: {{this.name}} | City: {{this.city}} | State: {{this.state}}</p>
-    <form action="/gyms/{{_id}}?_method=DELETE" method="POST">
+    <form action="/gyms/remove/{{_id}}" method="POST">
            <a href="/gyms/{{_id}}"><button type="submit">Delete Gym</button></a>
        </form>
   {{!-- <a href="/gyms/{{_id}}"><button data-value="{{this._id}}">Delete</button></a>     --}}

@@ -3,7 +3,6 @@ var router = express.Router();
 
 const userModel = require('../models/user');
 const exerciseModel = require('../models/exercise');
-
 const gymModel = require('../models/gym');
 
 /*----------------
@@ -163,7 +162,6 @@ router.get('/gyms/', function (req, res, next) {
     });
 });
 
-/* GET users listing. */
 router.get('/gyms/test/:gymid', function (req, res, next) {
   res.send(`respond with a resource ${req.params.userID}`);
 });
@@ -186,11 +184,11 @@ router.post('/gyms/new', function (req, res, next) {
       res.send("ERROR creating new gym" + JSON.stringify(err));
     });
 });
-router.post('/gyms/:gymsId', function (req, res, next) {
 
-  gym.findByIdAndRemove(req.params.gymsId)
+router.post('/gyms/remove/:gymsId', function (req, res, next) {
+  gymModel.findByIdAndRemove(req.params.gymsId)
     .then(() => {
-      res.redirect('/')
+      res.redirect('/gyms')
     });
 });
 module.exports = router;
