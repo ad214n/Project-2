@@ -3,7 +3,6 @@ var router = express.Router();
 
 const userModel = require('../models/user');
 const exerciseModel = require('../models/exercise');
-
 const gymModel = require('../models/gym'); 
 
 /*----------------

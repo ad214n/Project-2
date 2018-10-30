@@ -1,12 +1,12 @@
 <h1>{{username}}</h1>
 <h3>Age: {{age}}</h3>
-<h3>Weight: {{weight}}</h3>
+<h3>Weight:{{weight}}</h3>
 <h3>Height: {{height}}</h3>
 <h3>Goals: {{goals}}</h3>
 <br>
 <form action="/users/edit/{{userId}}" method="post">
     <div>
-        <label for="name">User Name</label>
+        <label for="name">Full Name:</label>
         <input type="text" id="name" name="userName" value="{{username}}">
     </div>
     <div>
