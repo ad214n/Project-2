@@ -44,7 +44,6 @@ router.post('/users/new', function(req, res, next) {
       const userId = created._id;
 
       // render the Specific User page with this new user's data
-
       res.redirect("/users/profile/" + userId);
     })
     .catch(function(err) {
@@ -142,7 +141,7 @@ router.post('/exercises/new/:userID', function(req, res, next) {
           console.log(`updated user to be: ${newUser}`);
         });
 
-      res.send("SUCCESS | creating new Exercise | " + createdRecord._id);
+        res.redirect("/users/profile/" + req.params.userID);
     })
     .catch(function(err) {
       res.send("ERROR | creating new Exercise | " + JSON.stringify(err));
@@ -156,7 +155,11 @@ router.post('/exercises/new/:userID', function(req, res, next) {
 
 /* GET users listing. */
 router.get('/gyms/', function(req, res, next) {
-  res.render('gyms');
+  gymModel.find({})
+    .then(function(results) {
+      console.log(results);
+      res.render("gyms", {gyms:results});
+    });
 });
 
 /* GET users listing. */
@@ -164,6 +167,24 @@ router.get('/gyms/test/:gymid', function(req, res, next) {
   res.send(`respond with a resource ${req.params.userID}`);
 });
 
+router.post('/gyms/new', function(req, res, next) {
+  const gymInfo = req.body;
+
+  const gymData = {
+    name: gymInfo.gymName,
+    city: gymInfo.gymCity,
+    state: gymInfo.gymState
+  }
+
+  gymModel
+    .create(gymData)
+    .then(function() {
+      res.redirect("/gyms");
+    })
+    .catch(function(err) {
+      res.send("ERROR creating new gym" + JSON.stringify(err));
+    });
+});
 
 
 module.exports = router;

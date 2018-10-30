@@ -1,7 +1,7 @@
 <h1>Where Do You Workout?</h1>
 <a href="/">Go Back</a>
 
-<form action="/my-handling-form-page" method="post">
+<form action="/gyms/new" method="post">
   <div>
     <label for="name">Gym Name</label>
     <input type="text" id="name" name="gymName">
@@ -14,4 +14,11 @@
     <label for="state">State</label>
     <input type="text" id="state" name="gymState">
   </div>
+  <input type="submit" value="Add Gym">
 </form>
+<br>
+
+<h2>All Gyms</h2>
+{{#each gyms}}
+    {{> gym}}
+{{/each}}
