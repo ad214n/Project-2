@@ -37,17 +37,35 @@ router.post('/users/new', function(req, res, next) {
 
   userModel
     .create(userData)
-    .then(function() {
+    .then(function(created) {
       // get the new user id
-
-      // find the new user record 
+      const userId = created._id;
 
       // render the Specific User page with this new user's data
 
-      res.send("SUCCESS | creating new User");
+      res.redirect("/users/profile/" + userId);
     })
     .catch(function(err) {
       res.send("ERROR | creating new User | " + JSON.stringify(err));
+    });
+});
+
+
+router.post('/users/edit/:id', function(req, res, next) {
+  const newData = {
+    userName: req.body.userName, 
+    age: parseInt(req.body.userAge),
+    weight: parseInt(req.body.userWeight),
+    height: parseInt(req.body.userHeight),
+    goals: req.body.userGoals,
+  }
+  userModel
+    .update({_id:req.params.id},newData)
+    .then(function(){
+      res.redirect("/users/profile/" + req.params.id);
+    })
+    .catch(function(err) {
+      res.send("ERROR updating user" + JSON.stringify(err));
     });
 });
 
@@ -59,12 +77,16 @@ router.get("/users/profile/:userID", function(req, res, next){
     .populate("exercises")
     .then(function(results) {
       const profileObj = {
+        userId: userID,
         username: results.userName,
         age: results.age,
         height: results.height,
         weight: results.weight,
-        goals: results.goals
+        goals: results.goals,
+        exercises: results.exercises
       };
+
+      console.log(results.exercises);
 
       res.render("profile", profileObj);
     });
@@ -73,12 +95,10 @@ router.get("/users/profile/:userID", function(req, res, next){
 
 /* GET users listing. */
 router.get('/users/allUsers', function(req, res, next) {
-  // userModel.find({})
-  //   .then(function(results) {
-  //     res.send(JSON.stringify(results));
-  //   });
-  const response = userController.getAll(req, res);
-  res.send(response);
+  userModel.find({})
+    .then(function(results) {
+      res.send(JSON.stringify(results));
+    });
 });
 
 
@@ -87,7 +107,7 @@ router.get('/users/allUsers', function(req, res, next) {
 ----------------*/
 
 /* POST to make a new exercise. */
-router.post('/exercises/new', function(req, res, next) {
+router.post('/exercises/new/:userID', function(req, res, next) {
   const input = req.body;
 
   const exerData = {
@@ -99,10 +119,20 @@ router.post('/exercises/new', function(req, res, next) {
   exerciseModel
     .create(exerData)
     .then(function(createdRecord) {
-        console.log(createdRecord);
-      // append new Exercise _id to the right User _id exercises array
+      
+      userModel
+        .findOneAndUpdate(
+          { _id: req.params.userID },
+          { $push: 
+            { exercises: createdRecord._id }
+          },
+          { new: true }
+        )
+        .then((newUser) => {
+          console.log(`updated user to be: ${newUser}`);
+        });
 
-      res.send("SUCCESS | creating new Exercise");
+      res.send("SUCCESS | creating new Exercise | " + createdRecord._id);
     })
     .catch(function(err) {
       res.send("ERROR | creating new Exercise | " + JSON.stringify(err));
