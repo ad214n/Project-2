@@ -2,6 +2,7 @@ require('dotenv').config();
 
 const mongoose = require('mongoose');
 mongoose.connect(process.env.MONGODB_URI);
+const methodOverride = require('method-override')
 
 var createError = require('http-errors');
 var express = require('express');
@@ -22,6 +23,7 @@ hbs.registerPartials(path.join(__dirname, 'views/partials'));
 
 app.use(logger('dev'));
 app.use(express.json());
+app.use(methodOverride('_method'))
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));

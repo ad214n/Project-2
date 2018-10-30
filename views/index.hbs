@@ -1,23 +1,48 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
-    <link href="https://fonts.googleapis.com/css?family=Monoton" rel="stylesheet">
-    <style>
-        h1: {color: blue;}
-    </style>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+        crossorigin="anonymous">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+        crossorigin="anonymous"></script>
+    <link href="https://fonts.googleapis.com/css?family=Permanent+Marker" rel="stylesheet">
+    <title>Let's Workout!</title>
 </head>
-<body style="background-color:rgb(143, 23, 73);">
-    
+
+<body>
+    <style>
+        h1 {
+            color: rgb(245, 250, 250);
+            font-family: 'Permanent Marker', cursive;
+            font-size: 90px;
+        }
+
+        body {
+            background-color: rgb(51, 46, 46)
+        }
+
+        #gym {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        #user {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+    </style>
 </body>
+
 </html>
 <h1>{{title}}</h1>
 <p>Welcome to {{title}}</p>
-<p><img src="https://images.pexels.com/photos/841130/pexels-photo-841130.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="Gym" width="360" height="270"></p>
-<a class="btn btn-light" href="/gyms" id="gym" role="button">Take Me to The Gym!</a>
 <a class="btn btn-light" href="/users" id="user" role="button">Come Join Us!</a>
-
+<p><img src="https://images.pexels.com/photos/841130/pexels-photo-841130.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+        alt="Gym" width="400" height="300"></p>
+<a class="btn btn-light" href="/gyms" id="gym" role="button">Take Me to The Gym!</a>
