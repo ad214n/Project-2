@@ -1,28 +1,37 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+        crossorigin="anonymous">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+        crossorigin="anonymous"></script>
+    <link href="https://fonts.googleapis.com/css?family=Spicy+Rice" rel="stylesheet">
 </head>
+
 <body>
     <style>
         body {
-   background-image: url("https://png.pngtree.com/thumb_back/fw800/back_pic/03/56/57/67579e1c2797613.jpg");
-   background-position: cover;
+   background-image: url("https://images.unsplash.com/photo-1460602594182-8568137446ce?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=c6a89cf0d31c8ed23b35aaf9a119a9f5&w=1000&q=80");
+   background-size: cover;
+   
 }
 h1 {
-    color: aqua;
-    font: 
+    color: rgb(54, 148, 148);
+    font-family: 'Spicy Rice', cursive;
+    font-size: 80px;
 }
 input {
     display: flex;
     flex-direction: column;
     width: 20%;
-    margin: 7px;
+    margin: 5px;
+    border: 2px solid rgb(35, 101, 139);
+    border-radius: 4px;
 }
 #msg {
     display: flex;
@@ -30,37 +39,39 @@ input {
     width: 30%;
     margin: 7px;
 }
-
-
-    </style>
+.text{
+    color: white;
+}
+</style>
 </body>
+
 </html>
 
 <h1>Join Our Community!</h1>
-<a class="btn btn-info" href="/" role="button">Go Back</a>
+<a class="btn btn-outline-info" href="/" role="button">Go Back</a>
 
 
 <form action="/users/new" method="post">
     <div>
-        <label for="name">Full Name:</label>
+        <label class='text' for="name">Full Name:</label>
         <input type="text" id="name" name="userName">
     </div>
     <div>
-        <label for="age">Age:</label>
+        <label class='text' for="age">Age:</label>
         <input type="number" id="age" name="userAge">
     </div>
     <div>
-        <label for="weight">Weight(lbs):</label>
+        <label class='text' for="weight">Weight(lbs):</label>
         <input type="number" id="weight" name="userWeight">
     </div>
     <div>
-        <label for="height">Height(cm):</label>
+        <label class='text' for="height">Height(cm):</label>
         <input type="number" id="height" name="userHeight">
-     </div>
+    </div>
     <div>
-        <label for="msg">Goals:</label>
+        <label class='text' for="msg">Goals:</label>
         <textarea id="msg" name="userGoals"></textarea>
     </div>
-<br>
+    <br>
     <input type="submit" value="Create Account">
 </form>
