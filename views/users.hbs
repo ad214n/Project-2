@@ -76,3 +76,10 @@ input {
     <br>
     <input type="submit" value="Create Account">
 </form>
+
+<h2>All Users</h2>
+<ul>
+    {{#each allUsers}}
+        {{> user}}
+    {{/each}}
+</ul>

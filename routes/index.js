@@ -21,7 +21,10 @@ router.get('/', function (req, res, next) {
 
 /* GET users listing. */
 router.get('/users/', function (req, res, next) {
-  res.render('users');
+    userModel.find({})
+    .then(function (results) {
+      res.render('users', { allUsers: results});
+    });
 });
 
 /* POST to make a new user. */
@@ -73,7 +76,7 @@ router.post('/users/delete/:id', function (req, res, next) {
   userModel
     .findByIdAndRemove(req.params.id)
     .then(() => {
-      res.redirect('/')
+      res.redirect('/users')
     });
 });
 
