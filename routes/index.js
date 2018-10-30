@@ -4,6 +4,8 @@ var router = express.Router();
 const userModel = require('../models/user');
 const exerciseModel = require('../models/exercise');
 
+const gymModel = require('../models/gym'); 
+
 /*----------------
   HOME PAGE ROUTE
 ----------------*/
@@ -66,6 +68,14 @@ router.post('/users/edit/:id', function(req, res, next) {
     })
     .catch(function(err) {
       res.send("ERROR updating user" + JSON.stringify(err));
+    });
+});
+
+router.post('/users/delete/:id', function(req, res, next) {
+  userModel
+    .findByIdAndRemove(req.params.id)
+    .then(() => {
+      res.redirect('/')
     });
 });
 
