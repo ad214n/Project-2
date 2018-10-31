@@ -1,10 +1,14 @@
 # Project-2-Workout-log
+
 ERD
 https://imgur.com/k1odDkp
+
 Trello Board 
 https://trello.com/b/17fbwtqv/workout-app
+
 Wireframe 
 https://www.figma.com/file/FJstHGRq48z4dY8fHEy4O7lG/Untitled?node-id=2%3A4
+
 Heroku Site
 https://damp-bastion-52159.herokuapp.com/
 
