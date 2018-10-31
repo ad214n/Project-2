@@ -13,7 +13,7 @@ Heroku Site
 https://damp-bastion-52159.herokuapp.com/
 
 ## Overview
-This is a full-stack application that allows a user to create a profile and input their exercises for the other members to view. This application also contains a page where users are able to input the gym facility they attend. In the future I would like to be able to link the user with the gym so that they are able to see which other users attend the same facility. I would also like to add an actual login with a password for the users security. 
+This is a full-stack application that allows a user to create a profile and input their exercises for the other members to view. This application also contains a page where users are able to input the gym facility they attend. In the future I would like to be able to link the user with the gym so that they are able to see which other users attend the same facility, and have a more organized workout log. I would also like to add an actual login with a password for the users security. 
 
 List of Technologies Used:
 * HTML5
