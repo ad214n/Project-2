@@ -1,6 +1,6 @@
 # Project-2-Workout-log
 <p>ERD</p>
-<p>Trello Board</p>
+<p>Trello Board https://trello.com/b/17fbwtqv/workout-app</p>
 <p>Wireframe https://www.figma.com/file/FJstHGRq48z4dY8fHEy4O7lG/Untitled?node-id=2%3A4</p>
 <p>Heroku Site</p>
 
